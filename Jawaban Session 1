@@ -1,0 +1,66 @@
+> Soal nomor 1
+package lab_session1_no1;
+import java.util.Scanner;
+
+public class Lab_session1_no1 
+{
+    public static void main(String[] args) 
+    {
+        // Declare variable & scan
+        int Second, Minute, SpareSecond;
+        Scanner input = new Scanner(System.in);
+        
+        // Display & ask for input
+        System.out.print("Enter an integer for seconds: ");
+        Second = input.nextInt();
+        
+        // Operations
+        Minute = Second/60;
+        SpareSecond = Second%60;
+        
+        // Output
+        System.out.println(Second + " seconds is " + Minute + " minutes and " + SpareSecond + " seconds");
+    }
+}
+
+> Soal nomor 2
+package lab_session1_no2;
+import java.util.Scanner;
+
+public class Lab_session1_no2 
+{
+    public static void main(String[] args) 
+    {
+        // Declare Array, variable, & scan
+        String[] WeekDay = {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"};
+        String Day, NextDay;
+        Scanner input = new Scanner(System.in);
+        
+        // Ask for input (hari)
+        System.out.print("Enter name of a day: ");
+        Day = input.nextLine();
+        
+        // Find index
+        int len = WeekDay.length;
+        int Temp1 = 0;
+        
+        while(WeekDay[Temp1].equals(Day.toLowerCase())==false) {
+            Temp1 += 1;
+        }
+  
+        // Operations
+        int Temp2 = (1000%7); //6 hari
+        
+        if(Temp1>=1)
+        {
+            NextDay = WeekDay[Temp1-1];
+        }
+        else
+        {
+            NextDay = WeekDay[Temp2];
+        }
+        
+        // Output
+        System.out.println("If today is " + Day + ", then 1000 more day is " + NextDay);
+    } 
+}
