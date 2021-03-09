@@ -1,0 +1,58 @@
+package lab_session2;
+import java.util.*;
+
+public class Lab_session2 
+{  
+    public static void main(String[] args) 
+    {
+        // Declare variable, scan, and random
+        int LotteryDigit1, LotteryDigit2;
+        int GuessDigit1, GuessDigit2;
+        Scanner input = new Scanner(System.in);
+        Random rand = new Random();
+        
+        // Random loterry number
+        LotteryDigit1 = rand.nextInt(10);
+        LotteryDigit2 = rand.nextInt(10);
+                
+        // Ask for input guess number
+        System.out.print("Input 1st digit of number that you guess [0-9]: ");
+        GuessDigit1 = input.nextInt();
+        System.out.print("Input 2nd digit of number that you guess [0-9]: ");
+        GuessDigit2 = input.nextInt();
+        
+        // Display information 
+        System.out.println("\nThe number that you guess is " + GuessDigit1 + GuessDigit2);
+        System.out.println("The Lucky number of today's lottery is " + LotteryDigit1 + LotteryDigit2);
+        
+        // Condition
+        int option = 0;
+        
+        if (LotteryDigit1 == GuessDigit1 && LotteryDigit2 == GuessDigit2)
+            option = 1;
+        else if (LotteryDigit1 == GuessDigit2 && LotteryDigit2 == GuessDigit1)
+            option = 2;
+        else if (LotteryDigit1 == GuessDigit1 || LotteryDigit1 == GuessDigit2 || LotteryDigit2 == GuessDigit1 || LotteryDigit2 == GuessDigit2)
+            option = 3;
+        else
+            option = 4;
+        
+        // Output
+        switch(option)
+        {
+            case 1:
+                System.out.println("\nCongratz! The number you guessed is perfectly same with the lucky number \nYou've got the grand prize: $10.000 ");
+                break;
+            case 2:
+                System.out.println("\nThat is so close! but it's okay, you've got the second prize: $ 3.000");
+                break;
+            case 3:
+                System.out.println("\nFortunately you have one digit that same with the lucky number! \nYou've got the common prize: $ 1.000");
+                break;
+            case 4:
+                System.out.println("\nMaybe this isn't your lucky day, try again next week!");
+                break;
+        } 
+        System.out.println("\nThank you for participating in this lottery.");     
+    } 
+}
