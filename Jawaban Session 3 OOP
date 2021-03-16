@@ -1,0 +1,36 @@
+package lab_session3;
+import java.util.*;
+
+public class Lab_session3 
+{
+    public static void main(String[] args) 
+    {
+        // Declare Variables
+        int MagicNumber, GuessNumber;
+        Scanner input = new Scanner(System.in);
+        Random rand = new Random();
+        
+        // Random magic number
+        MagicNumber = rand.nextInt(101);
+        
+        // Display rules
+        System.out.println("Guess a magic number between 0 and 100");
+        
+        // Just clue (pretend as if it's not there) 
+        System.out.println("Clue: Magic number is " + MagicNumber + "\n");
+       
+        // Ask for input
+        do
+        {
+            System.out.println("Enter your guess [0-100]: ");
+            GuessNumber = input.nextInt();
+            // Condition & Output
+            if(GuessNumber < MagicNumber)
+                System.out.println("Your guess is too low\n");
+            else if(GuessNumber > MagicNumber)
+                System.out.println("Your guess is too high\n");
+            else
+                System.out.println("Yes, the magic number is " + MagicNumber);
+        }while(MagicNumber != GuessNumber);    
+    }
+}
