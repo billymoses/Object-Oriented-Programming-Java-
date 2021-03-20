@@ -1,0 +1,34 @@
+package lab_session4;
+import java.util.*;
+
+public class Lab_session4 
+{
+    public static void main(String[] args) 
+    {
+        // Declare String Variable
+        String FirstCity, SecondCity;
+        int Unicode1, Unicode2;
+        Scanner input = new Scanner(System.in);
+        
+        // Ask for input
+        System.out.println("Insert name of the first city: ");
+        FirstCity = input.nextLine();
+        System.out.println("Insert name of the second city: ");
+        SecondCity = input.nextLine();
+        
+        // Make all the city letter to lowercase
+        String temp1 = FirstCity.toLowerCase();
+        String temp2 = SecondCity.toLowerCase();
+        
+        // Search unicode of first letter of the city's name
+        Unicode1 = temp1.codePointAt(0);
+        Unicode2 = temp2.codePointAt(0);
+        
+        // Condition
+        System.out.println("\nAlphabetical order of the cities: ");
+        if(Unicode1 < Unicode2)
+            System.out.println("1." + FirstCity + "\n2. " + SecondCity);
+        else
+            System.out.println("1." + SecondCity + "\n2. " + FirstCity);
+    }  
+}
