@@ -1,0 +1,45 @@
+package lab_session.pkg5;
+
+public class Tabung 
+{
+    // Declare variable in tabung class
+    public double radius, tinggi;
+    
+    // Constructor for tabung without parameter
+    public Tabung()
+    {
+        radius = 1; tinggi = 1;
+    }
+    
+    // Constructor for tabung with parameter
+    public Tabung(double r, double t)
+    {
+        radius = r; tinggi = t;
+    }
+    
+    // Method that return value of volume tabung as double 
+    public double getVolume()
+    {
+        double volume;
+        volume = Math.PI * Math.pow(radius, 2) * tinggi;
+        return volume;
+    }
+    
+    // Method that return value of luas alas tabung as double 
+    public double getLuasAlas()
+    {
+        double luasAlas;
+        luasAlas = Math.PI * Math.pow(radius, 2);
+        return luasAlas;
+    }
+    
+    // Method that modif radius value
+    public void setRadius(double r) {
+        radius = r;
+    }
+    
+    // Method that modif tinggi value
+    public void setTinggi(double t) {
+        tinggi = t;
+    }  
+}
