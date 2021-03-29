@@ -1,0 +1,30 @@
+package lab_session.pkg5_no2;
+import java.util.GregorianCalendar;
+
+public class Lab_session5_no2 
+{
+
+    public static void main(String[] args) 
+    {
+        // Create object
+        GregorianCalendar calendar = new GregorianCalendar();
+        
+        // Display
+        System.out.println("Saat Ini ");
+        System.out.println("Tanggal: " + calendar.get(GregorianCalendar.DAY_OF_MONTH));
+        System.out.println("Bulan: " + calendar.get(GregorianCalendar.MONTH));
+        System.out.println("Tahun: " + calendar.get(GregorianCalendar.YEAR));
+        
+        // Operation
+        long milisecond = calendar.getTimeInMillis();
+        long second = milisecond/1000;
+        long hour = second/3600;
+        long day = hour/24;
+        long month = day/30;
+        long year = month/12;
+        
+        // Display
+        System.out.println("\nWaktu yang telah terlewati(Miliseconds): " + milisecond);
+        System.out.println("Waktu yang telah terlewati(Year, Month, Day): " + year + " Tahun " + month + " Bulan " + day + " Hari");   
+    }   
+}
