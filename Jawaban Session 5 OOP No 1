@@ -1,0 +1,27 @@
+package lab_session.pkg5;
+
+public class Lab_session5 
+{
+    public static void main(String[] args) 
+    {
+        // Create object without parameter 
+        Tabung objectPertama = new Tabung();
+        
+        // Create object with parameter 
+        Tabung objectKedua = new Tabung(5,10);
+        Tabung objectKetiga = new Tabung(7.5,15.5);
+        
+        // Display 3 object
+        System.out.println("Tabung pertama (menggunakan nilai default radius & tinggi=1): ");
+        System.out.println("Volume: " + objectPertama.getVolume());
+        System.out.println("Luas Alas: " + objectPertama.getLuasAlas());
+        
+        System.out.println("\nTabung kedua (radius=5 dan tinggi=10): ");
+        System.out.println("Volume: " + objectKedua.getVolume());
+        System.out.println("Luas Alas: " + objectKedua.getLuasAlas());
+        
+        System.out.println("\nTabung ketiga (radius=7.5 dan tinggi=15.5): ");
+        System.out.println("Volume: " + objectKetiga.getVolume());
+        System.out.println("Luas Alas: " + objectKetiga.getLuasAlas());
+    } 
+}
