@@ -1,0 +1,62 @@
+package lab_session6;
+import java.util.Scanner;
+
+public class Lab_session6 
+{
+    public static void main(String[] args) 
+    {   
+        // Create object from scanner class
+        Scanner input = new Scanner(System.in);
+        
+        // Declare variable
+        int jumlahPeserta, jumlahSoal;
+        
+        // declare array list 
+        String[] kunciJawaban = {"D","B","D","C","C","D","A","E","A","D"};
+        
+        // Ask for input
+        System.out.println("Masukan jumlah peserta yang mengikuti ujian pilihan ganda ini: ");
+        jumlahPeserta = input.nextInt();
+        jumlahSoal = 10;
+        
+        // Declare array2 dimension for keeping the exam answer
+        String[][] jawaban = new String[jumlahPeserta][jumlahSoal];
+        
+        // Input answer to matrix 2 dimension
+        for(int i=1; i<=jumlahPeserta; i++)
+        {
+            System.out.println("Peserta Id ke " + i);
+            for(int j=1; j<=jumlahSoal; j++)
+            {
+                System.out.print("Jawaban untuk soal nomer " + j + " adalah ");
+                jawaban[i-1][j-1] = input.next();
+            }
+        }
+        
+        // Declare array to store the total correct answer
+        int[] correctAnswer = new int[jumlahPeserta];
+        
+        // Declare variable for counting the total correct answer
+        int totalCorrect;
+        
+        // Check the answer with the exam key
+        for(int i=0; i<jumlahPeserta; i++)
+        {
+            int temp;
+            totalCorrect = 0;
+            for(int j=0; j<jumlahSoal; j++)
+            {
+                temp = (jawaban[i][j].equals(kunciJawaban[j])) ? totalCorrect += 1 : totalCorrect; //ternary
+            }
+            correctAnswer[i] = totalCorrect;
+        }
+        
+        // Display the total correct answer of every peserta
+        for(int i=1; i<= jumlahPeserta; i++)
+        {
+            System.out.println("\n Hasil Ujian");
+            System.out.println("Peserta id ke "+ i + " jumlah jawaban yang benar adalah " + correctAnswer[i-1]);
+        }   
+    }
+    
+}
