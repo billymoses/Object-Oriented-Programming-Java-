@@ -1,0 +1,123 @@
+package lab_session7;
+import java.util.ArrayList;
+
+public class Course 
+{
+    // Declare variable
+    private String courseName;
+    private ArrayList<String> students = new ArrayList<>();
+    private int numberOfStudents = 0;
+    
+    // Method
+    public Course(String courseName)
+    {
+        this.courseName = courseName;
+    }
+    
+    // Add method
+    public void addStudent(String student)
+    {
+        students.add(student); // method in arraylist
+        numberOfStudents = numberOfStudents + 1;
+    }
+    
+    // Remove method
+    public void dropStudent(String student)
+    {
+        for(int i=0; i<numberOfStudents; ++i)
+        {
+            if(students.get(i).equalsIgnoreCase(student))
+            {
+                students.remove(i); // method in arraylist
+                numberOfStudents = numberOfStudents - 1;
+                break;
+            }
+        }       
+    }
+    
+    // Get method
+    public String getCourseName()
+    {
+        return courseName;
+    }
+    
+    public ArrayList<String> getStudents()
+    {
+        return students;
+    }
+    
+    public int getNumberOfStudents()
+    {
+        return numberOfStudents;
+    }
+}
+
+public class TestCourse
+{
+    public static void main(String[] args) 
+    {
+        // Create object
+        Course course1 = new Course("course1");
+        Course course2 = new Course("course2");
+        
+        // CASE 1-ADD
+        // Add student to course1
+        course1.addStudent("Peter Jones");
+        course1.addStudent("Kim Smith");
+        course1.addStudent("Anne Kennedy");
+        
+        // Display student total in course1
+        System.out.println("Number of students in course1: " + course1.getNumberOfStudents());
+        
+        // Call get student method in course1
+        ArrayList<String> course1Students = course1.getStudents();
+        
+        // Display students name in course1
+        for (int i=0; i<course1Students.size(); ++i)
+        {
+            System.out.print(course1Students.get(i) + ",");
+        }
+        
+        // Add student to course2
+        course2.addStudent("Peter Jones");
+        course2.addStudent("Steve Smith");
+        
+        // Display student total in course2
+        System.out.println("\n\nNumber of students in course2: " + course2.getNumberOfStudents());
+        
+        // Call get student method in course2
+        ArrayList<String> course2Students = course2.getStudents();
+        
+        // display students name in course2
+        for (int i=0; i<course2Students.size(); ++i)
+        {
+            System.out.print(course2Students.get(i) + ",");
+        }
+        
+        // CASE 2-REMOVE
+        // Display removed students
+        System.out.println("\n\nRemoved students: Peter Jones from course1");
+        
+        // Remove Peter jones from students
+        course1.dropStudent("Peter Jones");
+        
+        // Display student total in course1
+        System.out.println("Number of students in course1: " + course1.getNumberOfStudents());
+        
+        // Call get student method in course1
+        course1Students = course1.getStudents();
+        
+        // Display students name in course1
+        for(int i=0; i<course1Students.size(); ++i) 
+        {
+            if(i == course1Students.size() - 1) 
+            {
+                System.out.print(course1Students.get(i));
+            }
+            else 
+            {
+                System.out.print(course1Students.get(i) + ",");
+            }
+        }        
+    }
+}
