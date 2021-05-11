@@ -1,0 +1,207 @@
+public class Lab_session8 
+{
+    public static void main(String[] args) 
+    {
+        // Declare variable user
+        String id_user, kata_sandi, status_login;
+        
+        // Declare input user
+        id_user = "user1";
+        kata_sandi = "user1";;
+        status_login = "berhasil";
+        
+        // Create object by calling the constructor
+        User pengguna = new User(id_user, kata_sandi, status_login);
+        
+        // Output user
+        System.out.println("ID User: " + pengguna.getuser_id());
+        System.out.println("Password User: " + pengguna.getpassword());
+        System.out.println("Status Login: " + pengguna.verify_login());
+        
+       // Declare variable customer
+       String info_user, info_login, nama_pengguna, alamat, email_pengguna, info_cc, info_pengiriman;
+       
+       // Declare input customer
+       nama_pengguna = "Billy";
+       alamat = "Malang";
+       email_pengguna = "BillyMoses@gmail.com";
+       info_cc = "Masih berlaku/aktif";
+       info_pengiriman = "Dalam perjalanan";
+       
+       // Create object by calling the constructor
+       Customer pelanggan = new Customer(id_user, kata_sandi, status_login, nama_pengguna, alamat, email_pengguna, info_cc, info_pengiriman);
+       
+       info_user = pelanggan.register(id_user);
+       info_login = pelanggan.login(status_login);
+       
+       // Output customer
+       System.out.println("\nNama Pelanggan: "+ pelanggan.getcustomer_name());
+       System.out.println("Alamat Pelanggan: " + pelanggan.getaddress());
+       System.out.println("Email Pelanggan: " + pelanggan.getemail());
+       System.out.println("Info Credit Card: " + pelanggan.getcredit_card_info());
+       System.out.println("Info Shipping: " + pelanggan.getshipping_info());
+       System.out.println("ID User: " + info_user);
+       System.out.println("Status Login: " + info_login);
+       
+       // Declare variable admin
+       String nama_staff, email_staff;
+       
+       // Declare input admin
+       nama_staff = "Brandon";
+       email_staff = "BrandonMathew@gmail.com";
+       
+       // Create object by calling the constructor
+       Admin staff = new Admin(id_user, kata_sandi, status_login, nama_staff, email_staff);
+       
+       System.out.println("\nNama Staff: " + staff.getadmin_name());
+       System.out.println("Email Staff: " + staff.getadmin_email());  
+    }
+    
+}
+
+public class User 
+{
+    private String user_id;
+    private String password;
+    private String login_status;
+    
+    public User(String user_id, String password, String login_status)
+    {
+        this.user_id = user_id;
+        this.password = password;
+        this.login_status = login_status;
+    }
+    
+    public String getuser_id()
+    {
+        return user_id;
+    }
+    
+    public String getpassword()
+    {
+        return password;
+    }
+    
+    public String getlogin_status()
+    {
+        return login_status;
+    }
+    
+    public String verify_login()
+    {
+        if(login_status.equalsIgnoreCase("Berhasil"))
+        {
+            return "Login Berhasil";
+        }
+        else
+        {
+            return "Login Gagal";
+        }
+    }
+}
+
+public class Customer extends User
+{
+    private String customer_name;
+    private String address;
+    private String customer_email;
+    private String credit_card_info;
+    private String shipping_info;
+    
+    public Customer(String user_id, String password, String login_status, String customer_name, String address, String customer_email, String credit_card_info, String shipping_info)
+    {
+        super(user_id, password, login_status);
+        this.customer_name = customer_name;
+        this.address = address;
+        this.customer_email = customer_email;
+        this.credit_card_info = credit_card_info;
+        this.shipping_info = shipping_info;
+    }
+    
+    public String getcustomer_name()
+    {
+        return customer_name;
+    }
+    
+    public String getaddress()
+    {
+        return address;
+    }
+    
+    public String getemail()
+    {
+        return customer_email;
+    }
+    
+    public String getcredit_card_info()
+    {
+        return credit_card_info;
+    }
+    
+    public String getshipping_info()
+    {
+        return shipping_info;
+    }
+    
+    public String bill()
+    {
+        return null;// Atribut dalam bill ada pada class lain
+    }
+    
+    public String register(String user_id)
+    {
+        return getuser_id();
+    }
+    
+    public String login(String login_status)
+    {
+        return getlogin_status();
+    }
+    
+    public void update_profile()
+    {
+        getuser_id();
+        getpassword();
+        getcustomer_name();
+        getaddress();
+        getemail();
+    }
+    
+    private String calculate_next_bill_amount()
+    {
+        return null;// Atribut terkait bill ada pada class lain
+    }
+    
+    private String generate_invoice_pdf_version()
+    {
+        return null;// Atribut terkait invoice ada pada class lain     
+    }
+}
+
+public class Admin extends User
+{
+    private String admin_name;
+    private String admin_email;
+    
+    public Admin(String user_id, String password, String login_status, String admin_name, String admin_email)
+    {
+        super(user_id, password, login_status);
+        this.admin_name = admin_name;
+        this.admin_email = admin_email;
+    }
+    
+    public String getadmin_name()
+    {
+        return admin_name;
+    }
+    
+    public String getadmin_email()
+    {
+        return admin_email;
+    }
+    
+    public String update_catalog()
+    {
+        return null;
+    }
+}
